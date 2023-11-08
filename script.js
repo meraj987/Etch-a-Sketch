@@ -6,7 +6,9 @@ function pixels (number, color)
     
 let board = document.querySelector(".board");
 let squares = board.querySelectorAll("div");
-let lighter = document.querySelector(".lighter")
+let marker = document.querySelector(".marker")
+let eraser = document.querySelector(".erase")
+let randomColorButton = document.querySelector(".color")
 squares.forEach((div) => div.remove());
 board.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
 board.style.gridTemplateRows = `repeat(${number}, 1fr)`
@@ -16,13 +18,24 @@ for (i =0; i < total; i++)
 {
     let box = document.createElement('div')
     box.id = 'box'
-    box.addEventListener("mouseover", () =>{
-        box.style.backgroundColor = "black"
+
+
+    marker.addEventListener("click", function () {
+        box.addEventListener("mouseover", function (){
+            box.style.backgroundColor = "black"
+        })
     })
 
-    lighter.addEventListener("click", function () {
+    eraser.addEventListener("click", function () {
         box.addEventListener("mouseover", function (){
-            box.style.backgroundColor = "light" + color
+            box.style.backgroundColor = "white"
+        })
+    })
+
+    randomColorButton.addEventListener("click", function () {
+        box.addEventListener("mouseover", function (){
+            const rgbColor = RandomRGB();
+            box.style.backgroundColor = rgbColor
         })
     })
     box.style.backgroundColor = color
@@ -61,9 +74,20 @@ pixelButton.addEventListener("click", function () {
     const color = "white"
     anyColor.value = ""
     pixelInput.value = 16
-    squares.forEach(div => div.style.background = "white")
+    const number = 16
+    pixels(number, color);
+    squares.forEach((div) => (div.style.backgroundColor = "white"))
  })
 
 
+ function RandomRGB() {
+    var red = Math.floor(Math.random() * 256);
+    var green = Math.floor(Math.random() * 256);
+    var blue = Math.floor(Math.random() * 256);
+
+    var rgbColor = `rgb(${red}, ${green}, ${blue})`;
+
+    return rgbColor;
+}
 
 
