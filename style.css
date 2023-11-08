@@ -1,5 +1,84 @@
-.board{
+
+body {
+    background-image: url('https://wallpapers.com/images/hd/nasa-blue-aurora-5kmngrdsolkdxrdb.webp'); /* Replace 'path-to-your-image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+    color: #fff; 
+}
+
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.buttons button {
+    background-color: #007BFF; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.buttons button:hover {
+    background-color: #0056b3; 
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+
+.value {
+    background-color: #28A745; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Style the board */
+.board {
     width: 500px;
     height: 500px;
+    margin: 8px;
     display: grid;
+    gap: 1px; 
+    background-color: #fff; 
+}
+
+
+.board div {
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    transition: background-color 0.3s;
+}
+
+.board div:hover {
+    background-color: #007BFF; 
 }
